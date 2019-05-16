@@ -1,7 +1,7 @@
 What is false
 ===========
 
-What and who is false?
+What and who is false?  
 Get a list of most significant JavaScript primitives, values and objects compared with false.
 
 Table of Contents
@@ -29,6 +29,7 @@ const option = {
     result : WhatIsFalse.ALL,
     output : WhatIsFalse.JSON
 };
+
 var wif = new WhatIsFalse(option);
 
 console.log(wif.toString());
