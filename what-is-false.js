@@ -23,7 +23,9 @@
             ? true
             : false ;
         this.options.result = this.options.result || WhatIsFalse.ALL ;
-        this.options.output = this.options.output  || '' ;
+        this.options.output = this.options.output === WhatIsFalse.JSON 
+                                ? WhatIsFalse.JSON
+                                : '' ;
     }
 
     /*!
@@ -145,6 +147,9 @@
         WhatIsFalse.OPERANDS.STRINGS.forEach( function( i ) {
             output += this.buildLine( i , only ) ;
         }.bind( this ) );
+
+        if(options.output === WhatIsFalse.JSON) 
+            return JSON.stringify( WhatIsFalse.OPERANDS ) ;
         return output;
     }
 

@@ -11,6 +11,7 @@
   "keywords": [
     "false",
     "equality",
+    "comparison",
     "true"
   ],
   "main": "index.js",
