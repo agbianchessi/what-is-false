@@ -23,6 +23,78 @@ var WhatIsFalse = require('what-is-false');
 Example
 -------
 
+Basic usage.
+
+```js
+var wif = new WhatIsFalse();
+
+console.log(wif.toString());
+```
+
+```
+----------------------
+Comparison with: false
+----------------------
+_Undefined
+    undefined == false --> false
+_Null
+    null == false --> false
+_NaN
+    NaN == false --> false
+_True
+    true == false --> false
+_False
+    false == false --> true
+_Empty array
+    [] == false --> true
+_Array with 0
+    [ 0 ] == false --> true
+_Array with 0.1
+    [ 0.1 ] == false --> false
+_Array with empty object
+    [ {} ] == false --> false
+_Array with 0 and 0
+    [ 0 , 0 ] == false --> false
+_Array with string 0
+    [ '0' ] == false --> true
+_Array with two string 0 elements
+    [ '0' , '0' ] == false --> false
+_Number 0
+    0 == false --> true
+_Number -0
+    -0 == false --> true
+_Number +0
+    +0 == false --> true
+_Number 1
+    1 == false --> false
+_Number -1
+    -1 == false --> false
+_Number 0.1
+    0.1 == false --> false
+_Number -0.1
+    -0.1 == false --> false
+_Empty String
+    '' == false --> true
+_String with 0
+    '0' == false --> true
+_String with double 0
+    '00' == false --> true
+_String with -0
+    '-0' == false --> true
+_String with +0
+    '+0' == false --> true
+_String with 0.1
+    '0.1' == false --> false
+_String with 1
+    '1' == false --> false
+_String with true
+    'true' == false --> false
+_String with false
+    'false' == false --> false
+```
+
+Passing *option* parameter to constructor.
+
 ```js
 const option = {
     operand : false,
