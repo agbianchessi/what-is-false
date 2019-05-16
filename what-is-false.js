@@ -149,7 +149,7 @@
         }.bind( this ) );
 
         if(options.output === WhatIsFalse.JSON) 
-            return JSON.stringify( WhatIsFalse.OPERANDS ) ;
+            return JSON.stringify( WhatIsFalse.OPERANDS , null , ' ' ) ;
         return output;
     }
 
@@ -164,7 +164,8 @@
     WhatIsFalse.prototype.buildLine = function( item , only ) {
         item.comparison = '== ' + this.options.operand ;
         item.result = this.eq2( item.item ) ;
-        if( String( item.result ) != only ) return '' ;
+        if( String( item.result ) != only && only !== WhatIsFalse.ALL ) 
+            return '' ;
         return '_' + item.name + '\n' 
             + '    ' + item.itemAsString + ' ' 
             + item.comparison + ' '
