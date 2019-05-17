@@ -2,7 +2,7 @@ What is false
 ===========
 
 What and who is false?  
-Get a list of most significant JavaScript primitives, values and objects compared with false.
+Get a list of most significant JavaScript primitives, values and objects compared with *false*.
 
 Table of Contents
 -----------------
@@ -10,6 +10,9 @@ Table of Contents
 * [Usage](#usage)
 * [Example](#example)
 * [API](#api)
+  - [Constansts](#constants)
+  - [Static Methods](#static-methods)
+  - [Instance Methods](#instance-methods)
 
 Usage
 -----
@@ -329,4 +332,38 @@ console.log(wif.toString());
 
 API
 ---
-TODO
+### Constants
+
+* `WhatIsFalse.ALL` = 'all'
+* `WhatIsFalse.TRUE` = 'true'
+* `WhatIsFalse.FALSE` = 'false'
+* `WhatIsFalse.JSON` = 'json'
+
+### Static Methods
+
+#### WhatIsFalse
+
+See: `WhatIsFalse.factory` for details on instantiation.
+
+#### WhatIsFalse.factory([options])
+
+WhatIsFalse instance creator
+
+* `options` - options (optional)
+  - `operand` - boolean used for comparison (default *false*)
+  - `result` - string *WhatIsFalse.FALSE* or *WhatIsFalse.TRUE* or *WhatIsFalse.ALL* (default): only *true*, *false* or *all* comparison results with *operand* will be displayed, respectively.
+  - `output` - string *WhatIsFalse.JSON* or empty (defalut)
+  
+### Instance Methods
+
+#### instance.toString()
+
+See: `instance.compare` for details.
+
+#### instance.compare()
+
+Make the comparison and return the result as string.
+
+#### instance.eq2(item)
+
+Compare item to *false* (or *true* if *operand* option is *true*) and retrun the comparison result.

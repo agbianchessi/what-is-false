@@ -133,19 +133,19 @@
         var output = '----------------------\n'
                     + 'Comparison with: ' + operand + '\n'
                     + '----------------------\n' ;
-        output += this.buildLine( WhatIsFalse.OPERANDS.UNDEFINED , only ) ;
-        output += this.buildLine( WhatIsFalse.OPERANDS.NULL , only ) ;
-        output += this.buildLine( WhatIsFalse.OPERANDS.NAN , only ) ;
-        output += this.buildLine( WhatIsFalse.OPERANDS.TRUE , only ) ;
-        output += this.buildLine( WhatIsFalse.OPERANDS.FALSE , only ) ;
+        output += this._buildLine( WhatIsFalse.OPERANDS.UNDEFINED , only ) ;
+        output += this._buildLine( WhatIsFalse.OPERANDS.NULL , only ) ;
+        output += this._buildLine( WhatIsFalse.OPERANDS.NAN , only ) ;
+        output += this._buildLine( WhatIsFalse.OPERANDS.TRUE , only ) ;
+        output += this._buildLine( WhatIsFalse.OPERANDS.FALSE , only ) ;
         WhatIsFalse.OPERANDS.ARRAYS.forEach( function( i ) {
-            output += this.buildLine( i , only ) ;
+            output += this._buildLine( i , only ) ;
         }.bind( this ) );
         WhatIsFalse.OPERANDS.NUMBERS.forEach( function( i ) {
-            output += this.buildLine( i , only ) ;
+            output += this._buildLine( i , only ) ;
         }.bind( this ) );
         WhatIsFalse.OPERANDS.STRINGS.forEach( function( i ) {
-            output += this.buildLine( i , only ) ;
+            output += this._buildLine( i , only ) ;
         }.bind( this ) );
 
         if(options.output === WhatIsFalse.JSON) 
@@ -158,10 +158,10 @@
      *
      * @param {} item to check
      * @return {Boolean} result of the comparison
-     * @api public
+     * @api private
      */
 
-    WhatIsFalse.prototype.buildLine = function( item , only ) {
+    WhatIsFalse.prototype._buildLine = function( item , only ) {
         item.comparison = '== ' + this.options.operand ;
         item.result = this.eq2( item.item ) ;
         if( String( item.result ) != only && only !== WhatIsFalse.ALL ) 
