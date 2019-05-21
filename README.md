@@ -8,6 +8,7 @@ Table of Contents
 -----------------
 
 * [Usage](#usage)
+* [Summary table](#summary-table)
 * [Example](#example)
 * [API](#api)
   - [Constansts](#constants)
