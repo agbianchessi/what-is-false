@@ -23,6 +23,40 @@ Node.js
 var WhatIsFalse = require('what-is-false');
 ```
 
+Summary table
+-------------
+
+| | ==false | ==true | if(*item*)
+--- | --- | --- | ---
+**undefined** | false | false | false
+**null** | false | false | false
+**NaN** | false | false | false
+**true** | false | true | true
+**false** | true | false | false
+**[]** | true | false | true
+**[ 0 ]** | true | false | true
+**[ 0.1 ]** | false | false | true
+**[ {} ]** | false | false | true
+**[ 0 , 0 ]** | false | false | true
+**[ '0' ]** | true | false | true
+**[ '0' , '0' ]** | false | false | true
+**0** | true | false | false
+**-0** | true | false | false
+**+0** | true | false | false
+**1** | false | true | true
+**-1** | false | false | true
+**0.1** | false | false | true
+**-0.1** | false | false | true
+**''** | true | false | false
+**'0'** | true | false | true
+**'00'** | true | false | true
+**'-0'** | true | false | true
+**'+0'** | true | false | true
+**'0.1'** | false | false | true
+**'1'** | false | true | true
+**'true'** | false | false | true
+**'false'** | false | false | true
+
 Example
 -------
 
@@ -117,34 +151,39 @@ console.log(wif.toString());
   "itemAsString": "null",
   "item": null,
   "comparison": "== false",
-  "result": false
+  "result": false,
+  "IFresult": false
  },
  "UNDEFINED": {
   "name": "Undefined",
   "itemAsString": "undefined",
   "comparison": "== false",
-  "result": false
+  "result": false,
+  "IFresult": false
  },
  "NAN": {
   "name": "NaN",
   "itemAsString": "NaN",
   "item": null,
   "comparison": "== false",
-  "result": false
+  "result": false,
+  "IFresult": false
  },
  "TRUE": {
   "name": "True",
   "itemAsString": "true",
   "item": true,
   "comparison": "== false",
-  "result": false
+  "result": false,
+  "IFresult": true
  },
  "FALSE": {
   "name": "False",
   "itemAsString": "false",
   "item": false,
   "comparison": "== false",
-  "result": true
+  "result": true,
+  "IFresult": false
  },
  "ARRAYS": [
   {
@@ -152,7 +191,8 @@ console.log(wif.toString());
    "itemAsString": "[]",
    "item": [],
    "comparison": "== false",
-   "result": true
+   "result": true,
+   "IFresult": true
   },
   {
    "name": "Array with 0",
@@ -161,7 +201,8 @@ console.log(wif.toString());
     0
    ],
    "comparison": "== false",
-   "result": true
+   "result": true,
+   "IFresult": true
   },
   {
    "name": "Array with 0.1",
@@ -170,7 +211,8 @@ console.log(wif.toString());
     0.1
    ],
    "comparison": "== false",
-   "result": false
+   "result": false,
+   "IFresult": true
   },
   {
    "name": "Array with empty object",
@@ -179,7 +221,8 @@ console.log(wif.toString());
     {}
    ],
    "comparison": "== false",
-   "result": false
+   "result": false,
+   "IFresult": true
   },
   {
    "name": "Array with 0 and 0",
@@ -189,7 +232,8 @@ console.log(wif.toString());
     0
    ],
    "comparison": "== false",
-   "result": false
+   "result": false,
+   "IFresult": true
   },
   {
    "name": "Array with string 0",
@@ -198,17 +242,19 @@ console.log(wif.toString());
     "0"
    ],
    "comparison": "== false",
-   "result": true
+   "result": true,
+   "IFresult": true
   },
   {
-   "name": "Array with two string 0 elements",
+   "name": "Array with string 0 and string 0",
    "itemAsString": "[ '0' , '0' ]",
    "item": [
     "0",
     "0"
    ],
    "comparison": "== false",
-   "result": false
+   "result": false,
+   "IFresult": true
   }
  ],
  "NUMBERS": [
@@ -217,49 +263,56 @@ console.log(wif.toString());
    "itemAsString": "0",
    "item": 0,
    "comparison": "== false",
-   "result": true
+   "result": true,
+   "IFresult": false
   },
   {
    "name": "Number -0",
    "itemAsString": "-0",
    "item": 0,
    "comparison": "== false",
-   "result": true
+   "result": true,
+   "IFresult": false
   },
   {
    "name": "Number +0",
    "itemAsString": "+0",
    "item": 0,
    "comparison": "== false",
-   "result": true
+   "result": true,
+   "IFresult": false
   },
   {
    "name": "Number 1",
    "itemAsString": "1",
    "item": 1,
    "comparison": "== false",
-   "result": false
+   "result": false,
+   "IFresult": true
   },
   {
    "name": "Number -1",
    "itemAsString": "-1",
    "item": -1,
    "comparison": "== false",
-   "result": false
+   "result": false,
+   "IFresult": true
   },
   {
    "name": "Number 0.1",
    "itemAsString": "0.1",
    "item": 0.1,
    "comparison": "== false",
-   "result": false
+   "result": false,
+   "IFresult": true
   },
   {
    "name": "Number -0.1",
    "itemAsString": "-0.1",
    "item": -0.1,
    "comparison": "== false",
-   "result": false
+   "result": false,
+   "IFresult": true
   }
  ],
  "STRINGS": [
@@ -268,63 +321,72 @@ console.log(wif.toString());
    "itemAsString": "''",
    "item": "",
    "comparison": "== false",
-   "result": true
+   "result": true,
+   "IFresult": false
   },
   {
    "name": "String with 0",
    "itemAsString": "'0'",
    "item": "0",
    "comparison": "== false",
-   "result": true
+   "result": true,
+   "IFresult": true
   },
   {
    "name": "String with double 0",
    "itemAsString": "'00'",
    "item": "00",
    "comparison": "== false",
-   "result": true
+   "result": true,
+   "IFresult": true
   },
   {
    "name": "String with -0",
    "itemAsString": "'-0'",
    "item": "-0",
    "comparison": "== false",
-   "result": true
+   "result": true,
+   "IFresult": true
   },
   {
    "name": "String with +0",
    "itemAsString": "'+0'",
    "item": "+0",
    "comparison": "== false",
-   "result": true
+   "result": true,
+   "IFresult": true
   },
   {
    "name": "String with 0.1",
    "itemAsString": "'0.1'",
    "item": "0.1",
    "comparison": "== false",
-   "result": false
+   "result": false,
+   "IFresult": true
   },
   {
    "name": "String with 1",
    "itemAsString": "'1'",
    "item": "1",
    "comparison": "== false",
-   "result": false
+   "result": false,
+   "IFresult": true
   },
   {
    "name": "String with true",
    "itemAsString": "'true'",
    "item": "true",
    "comparison": "== false",
-   "result": false
+   "result": false,
+   "IFresult": true
   },
   {
    "name": "String with false",
    "itemAsString": "'false'",
    "item": "false",
    "comparison": "== false",
-   "result": false
+   "result": false,
+   "IFresult": true
   }
  ]
 }
@@ -366,4 +428,4 @@ Make the comparison and return the result as string.
 
 #### instance.eq2(item)
 
-Compare item to *false* (or *true* if *operand* option is *true*) and retrun the comparison result.
+Compare item to *false* (or *true* if *operand* option is *true*) and return the comparison result.

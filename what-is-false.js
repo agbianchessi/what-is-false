@@ -164,6 +164,9 @@
     WhatIsFalse.prototype._buildLine = function( item , only ) {
         item.comparison = '== ' + this.options.operand ;
         item.result = this.eq2( item.item ) ;
+        let i = item.item;
+        if( i ) item.IFresult = true;
+        else item.IFresult = false;
         if( String( item.result ) != only && only !== WhatIsFalse.ALL ) 
             return '' ;
         return '_' + item.name + '\n' 
